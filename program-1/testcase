@@ -1,0 +1,36 @@
+import unittest
+from problem import sort_string_by_frequency
+
+class TestSortStringByFrequency(unittest.TestCase):
+    def test_empty_string(self):
+        self.assertEqual(sort_string_by_frequency(""), "")
+
+    def test_single_character(self):
+        self.assertEqual(sort_string_by_frequency("a"), "a")
+
+    def test_distinct_characters(self):
+        self.assertEqual(sort_string_by_frequency("abcdefg"), "gfedcba")
+
+    def test_repeating_characters(self):
+        self.assertEqual(sort_string_by_frequency("aaabbbccc"), "aaabbbccc")
+
+    def test_mixed_characters(self):
+        self.assertEqual(sort_string_by_frequency("abracadabra"), "aaaaabbbrrcd")
+
+    def test_special_characters_and_spaces(self):
+        self.assertEqual(sort_string_by_frequency("a! b. c?"), "a! b. c?")
+
+    def test_upper_and_lowercase_characters(self):
+        self.assertEqual(sort_string_by_frequency("aAaBbBcCc"), "aAaBbBcCc")
+
+    def test_numbers(self):
+        self.assertEqual(sort_string_by_frequency("122333444455555"), "5555544444333221")
+
+    def test_unicode_characters(self):
+        self.assertEqual(sort_string_by_frequency("日本語"), "日本語")
+
+    def test_multiple_spaces(self):
+        self.assertEqual(sort_string_by_frequency("   a   b    "), "   a   b    ")
+
+if __name__ == '__main__':
+    unittest.main()
