@@ -1,0 +1,16 @@
+from collections import Counter
+
+def sort_string_by_frequency(input_string):
+    # Step 1: Count the frequency of characters
+    char_count = Counter(input_string)
+
+    # Step 2: Create a list of tuples (character, frequency)
+    char_freq_list = [(char, freq) for char, freq in char_count.items()]
+
+    # Step 3: Sort the list of tuples based on frequency in descending order
+    char_freq_list.sort(key=lambda x: x[1], reverse=True)
+
+    # Step 4: Construct the sorted string
+    sorted_string = ''.join([char * freq for char, freq in char_freq_list])
+
+    return sorted_string
