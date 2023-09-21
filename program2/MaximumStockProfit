@@ -1,0 +1,19 @@
+public class MaximumStockProfit {
+    public static void findMaxProfit(int[] prices) {
+        int n = prices.length;
+        int buy = 0, sell = 0, maxProfit = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                int profit = prices[j] - prices[i];
+                if (profit > maxProfit) {
+                    maxProfit = profit;
+                    buy = i;
+                    sell = j;
+                }
+            }
+        }
+        System.out.println("Buy on day " + (buy + 1) + " at price " + prices[buy]);
+        System.out.println("Sell on day " + (sell + 1) + " at price " + prices[sell]);
+        System.out.println("Max profit: " + maxProfit);
+    }
+}
