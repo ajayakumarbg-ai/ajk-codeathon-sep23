@@ -1,0 +1,56 @@
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
+class MaximumStockProfitTest {
+    @Test
+    public void testFindMaxProfit1() {
+        int[] prices = {100, 180, 260, 310, 40, 535, 695};
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+        MaximumStockProfit.findMaxProfit(prices);
+        String expectedOutput = "Buy on day 5 at price 40\nSell on day 7 at price 695\nMax profit: 655\n";
+        assertEquals(expectedOutput, outContent.toString());
+    }
+
+    @Test
+    public void testFindMaxProfit2() {
+        int[] prices = {10, 20, 30, 40, 50, 60, 70};
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+        MaximumStockProfit.findMaxProfit(prices);
+        String expectedOutput = "Buy on day 1 at price 10\nSell on day 7 at price 70\nMax profit: 60\n";
+        assertEquals(expectedOutput, outContent.toString());
+    }
+
+    @Test
+    public void testFindMaxProfit3() {
+        int[] prices = {100, 90, 80, 70, 60, 50, 40};
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+        MaximumStockProfit.findMaxProfit(prices);
+        String expectedOutput = "Buy on day 1 at price 100\nSell on day 1 at price 100\nMax profit: 0\n";
+        assertEquals(expectedOutput, outContent.toString());
+    }
+
+    @Test
+    public void testFindMaxProfit4() {
+        int[] prices = {100, 200, 300, 400, 500, 600, 700};
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+        MaximumStockProfit.findMaxProfit(prices);
+        String expectedOutput = "Buy on day 1 at price 100\nSell on day 7 at price 700\nMax profit: 600\n";
+        assertEquals(expectedOutput, outContent.toString());
+    }
+
+    @Test
+    public void testFindMaxProfit5() {
+        int[] prices = {100, 200, 300, 400, 500, 400, 300};
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+        MaximumStockProfit.findMaxProfit(prices);
+        String expectedOutput = "Buy on day 1 at price 100\nSell on day 5 at price 500\nMax profit: 400\n";
+        assertEquals(expectedOutput, outContent.toString());
+    }
+}
